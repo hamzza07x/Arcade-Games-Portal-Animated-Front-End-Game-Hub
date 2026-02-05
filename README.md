@@ -32,20 +32,19 @@ The portal is designed to be **scalable**, allowing new games to be added easily
 ## 🚀 Live Demo
 
 <div align="center">
-  <a href="YOUR_GITHUB_PAGES_URL_HERE" target="_blank">
+  <a href="YOUR_GITHUB_PAGES_URL_HERE" target="_blank" style="text-decoration: none;">
     <button style="
-      padding: 12px 28px;
-      font-size: 16px;
+      padding: 12px 40px;
+      font-size: 1.1rem;
       font-weight: bold;
       color: white;
       background: linear-gradient(45deg, #f39c12, #e74c3c);
       border: none;
-      border-radius: 30px;
+      border-radius: 50px;
       cursor: pointer;
     ">
-      ▶️ Launch Arcade Portal
+      ▶ Play Now
     </button>
   </a>
 </div>
-
 <br>
