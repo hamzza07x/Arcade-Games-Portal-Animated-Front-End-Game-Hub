@@ -32,7 +32,7 @@ The portal is designed to be **scalable**, allowing new games to be added easily
 ## 🚀 Live Demo
 
 <div align="center">
-  <a href="YOUR_GITHUB_PAGES_URL_HERE" target="_blank" style="text-decoration: none;">
+  <a href="https://arcade-game-hub-coral.vercel.app/" target="_blank" style="text-decoration: none;">
     <button style="
       padding: 12px 40px;
       font-size: 1.1rem;
