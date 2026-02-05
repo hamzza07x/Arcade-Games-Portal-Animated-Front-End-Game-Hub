@@ -29,21 +29,23 @@ The portal is designed to be **scalable**, allowing new games to be added easily
 - **Font Awesome** – Icons  
 
 ---
-
-## 📂 Project Structure
-
-/
-├── index.html
-├── style.css
-├── script.js
-├── Games/
-│ └── Snake game/
-│ └── index.html
-
----
-
 ## 🚀 Live Demo
 
-Click the button below to view the live project:
+<div align="center">
+  <a href="YOUR_GITHUB_PAGES_URL_HERE" target="_blank">
+    <button style="
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(45deg, #f39c12, #e74c3c);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    ">
+      ▶️ Launch Arcade Portal
+    </button>
+  </a>
+</div>
 
-👉 **[View Live Demo](YOUR_GITHUB_PAGES_URL_HERE)**
+<br>
