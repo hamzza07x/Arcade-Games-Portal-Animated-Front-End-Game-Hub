@@ -1,0 +1,208 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.bg-classic {
+    background: linear-gradient(45deg, #2c3e50, #34495e);
+}
+
+.bg-forest {
+    background: linear-gradient(45deg, #27ae60, #2ecc71, #16a085);
+}
+
+.bg-ocean {
+    background: linear-gradient(45deg, #3498db, #2980b9, #1abc9c);
+}
+
+.bg-sunset {
+    background: linear-gradient(45deg, #e74c3c, #f39c12, #f1c40f);
+}
+
+.bg-galaxy {
+    background: linear-gradient(45deg, #8e44ad, #9b59b6, #e91e63);
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+.menu-screen, .game-screen {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.menu-screen {
+    max-width: 400px;
+    width: 90%;
+}
+
+.game-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #f39c12, #e74c3c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.menu-btn {
+    width: 200px;
+    margin: 10px auto;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.menu-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.submenu {
+    display: none;
+    margin-top: 20px;
+}
+
+.submenu.show {
+    display: block;
+}
+
+.back-btn {
+    background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+    width: 100px;
+    margin: 10px auto 20px;
+}
+
+.difficulty-btn {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+}
+
+.bg-option {
+    width: 60px;
+    height: 40px;
+    margin: 5px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.bg-option:hover {
+    transform: scale(1.1);
+}
+
+.bg-option.active {
+    border-color: #f39c12;
+    border-width: 3px;
+}
+
+#gameCanvas {
+    border: 3px solid #fff;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.game-controls {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.modal-content {
+    background: linear-gradient(45deg, #2c3e50, #34495e);
+    color: white;
+    border: none;
+    border-radius: 15px;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.mobile-controls .control-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.mobile-controls .control-btn:hover,
+.mobile-controls .control-btn:active {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .menu-title {
+        font-size: 2rem;
+    }
+    
+    .menu-btn {
+        width: 180px;
+        font-size: 1rem;
+    }
+    
+    #gameCanvas {
+        width: 320px;
+        height: 320px;
+    }
+    
+    .game-info {
+        font-size: 1rem;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-around;
+    }
+}

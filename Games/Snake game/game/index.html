@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-classic">
+    <div class="game-container">
+        <div class="menu-screen" id="mainMenu">
+            <h1 class="menu-title">SNAKE GAME</h1>
+            <button class="btn menu-btn" onclick="startGame()">
+                <i class="fas fa-play"></i> Start Game
+            </button>
+            <button class="btn menu-btn" onclick="showLevels()">
+                <i class="fas fa-layer-group"></i> Levels
+            </button>
+            <button class="btn menu-btn" onclick="showAbout()">
+                <i class="fas fa-info-circle"></i> About
+            </button>
+            <button class="btn menu-btn" onclick="showSettings()">
+                <i class="fas fa-cog"></i> Settings
+            </button>
+
+            <div class="submenu" id="levelsMenu">
+                <button class="btn back-btn" onclick="showMainMenu()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button class="btn menu-btn difficulty-btn" onclick="setDifficulty('easy')">
+                    <i class="fas fa-leaf"></i> Easy
+                </button>
+                <button class="btn menu-btn difficulty-btn" onclick="setDifficulty('medium')">
+                    <i class="fas fa-star"></i> Medium
+                </button>
+                <button class="btn menu-btn difficulty-btn" onclick="setDifficulty('hard')">
+                    <i class="fas fa-fire"></i> Hard
+                </button>
+            </div>
+
+            <div class="submenu" id="aboutMenu">
+                <button class="btn back-btn" onclick="showMainMenu()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <div style="text-align: left; margin-top: 20px;">
+                    <h4>Snake Game v1.0</h4>
+                    <p>Classic snake game with modern features!</p>
+                    <p><strong>Controls:</strong></p>
+                    <p>• Use arrow keys to move</p>
+                    <p>• Eat food to grow and score</p>
+                    <p>• Avoid hitting walls or yourself</p>
+                    <p><strong>Difficulty Levels:</strong></p>
+                    <p>• Easy: Slow pace, perfect for beginners</p>
+                    <p>• Medium: Moderate speed</p>
+                    <p>• Hard: Fast pace for experts</p>
+                </div>
+            </div>
+
+            <div class="submenu" id="settingsMenu">
+                <button class="btn back-btn" onclick="showMainMenu()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <h4 style="margin-bottom: 20px;">Background Themes</h4>
+                <div>
+                    <div class="bg-option bg-classic" onclick="changeBackground('classic')" title="Classic"></div>
+                    <div class="bg-option bg-forest" onclick="changeBackground('forest')" title="Forest"></div>
+                    <div class="bg-option bg-ocean" onclick="changeBackground('ocean')" title="Ocean"></div>
+                    <div class="bg-option bg-sunset" onclick="changeBackground('sunset')" title="Sunset"></div>
+                    <div class="bg-option bg-galaxy" onclick="changeBackground('galaxy')" title="Galaxy"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-screen" id="gameScreen">
+            <div class="game-info">
+                <div>Score: <span id="score">0</span></div>
+                <div>Level: <span id="currentLevel">Easy</span></div>
+                <div>High Score: <span id="highScore">0</span></div>
+            </div>
+            <canvas id="gameCanvas" width="600" height="600"></canvas>
+            <div class="game-controls">
+                <p class="d-none d-md-block">Use arrow keys to control the snake | Press ESC to pause</p>
+                <p class="d-md-none">Swipe to control the snake</p>
+                
+                <div class="mobile-controls d-md-none mb-3">
+                    <div class="d-flex justify-content-center mb-2">
+                        <button class="btn btn-outline-light control-btn" id="upBtn">
+                            <i class="fas fa-chevron-up"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-center gap-3">
+                        <button class="btn btn-outline-light control-btn" id="leftBtn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="btn btn-outline-light control-btn" id="rightBtn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2">
+                        <button class="btn btn-outline-light control-btn" id="downBtn">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="btn btn-secondary mt-2" onclick="pauseGame()">
+                    <i class="fas fa-pause"></i> Pause
+                </button>
+                <button class="btn btn-danger mt-2" onclick="backToMenu()">
+                    <i class="fas fa-home"></i> Menu
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="gameOverModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-skull-crossbones"></i> Game Over!
+                    </h5>
+                </div>
+                <div class="modal-body text-center">
+                    <h4>Final Score: <span id="finalScore">0</span></h4>
+                    <p id="newHighScore" class="text-warning hidden">
+                        <i class="fas fa-trophy"></i> New High Score!
+                    </p>
+                    <p>Better luck next time!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="restartGame()">
+                        <i class="fas fa-redo"></i> Play Again
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="backToMenu()">
+                        <i class="fas fa-home"></i> Main Menu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

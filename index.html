@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Games Portal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="game-loader"></div>
+        </div>
+        <div class="loading-text">Loading Arcade...</div>
+        <div class="loading-progress">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+
+    <div class="main-page" id="mainPage">
+        <div class="bg-animation" id="bgAnimation"></div>
+
+        <div class="header">
+            <h1 class="portal-title">🎮 ARCADE GAMES</h1>
+            <p class="portal-subtitle">Choose Your Adventure - Classic Games Reimagined</p>
+        </div>
+
+        <div class="games-container">
+            <div class="games-grid">
+                <div class="game-card" data-game="snake">
+                    <span class="badge-status badge-available">Available</span>
+                    <i class="fas fa-snake game-icon"></i>
+                    <h2 class="game-title">Snake Game</h2>
+                    <p class="game-description">
+                        Classic snake gameplay with modern features. Eat food, grow longer, and avoid hitting yourself!
+                    </p>
+                    <div class="game-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-star"></i>
+                            <span>3 Levels</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Mobile Ready</span>
+                        </div>
+                    </div>
+                    <button class="play-btn" onclick="playGame('Games/Snake game/index.html')">
+                        <i class="fas fa-play"></i> Play Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🎮 More games coming soon! | Made with ❤️ for gamers</p>
+        </div>
+    </div>
+
+    <div class="transition-overlay" id="transitionOverlay">
+        <div class="loader">
+            <div class="game-loader"></div>
+        </div>
+        <div class="transition-text">Get Ready!</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
