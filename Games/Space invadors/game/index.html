@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Space Invaders - Dark Liquid Glass</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="game-container">
+            <!-- Game Canvas -->
+            <canvas id="gameCanvas" width="600" height="800"></canvas>
+            
+            <!-- Glass Overlay UI -->
+            <div class="glass-overlay">
+                <div class="score-panel">
+                    <span id="scoreDisplay">Score: 0</span>
+                    <span id="levelDisplay">Level: 1</span>
+                </div>
+            </div>
+
+            <!-- Countdown Overlay -->
+            <div id="countdownOverlay" class="overlay hidden">
+                <div class="glass-card">
+                    <h2 class="glow-text">GET READY!</h2>
+                    <div id="countdownNumber" class="countdown-number">3</div>
+                </div>
+            </div>
+
+            <!-- Level Complete Overlay -->
+            <div id="levelCompleteOverlay" class="overlay hidden">
+                <div class="glass-card">
+                    <h2 class="glow-text">LEVEL <span id="clearedLevel">1</span> CLEARED</h2>
+                    <p class="instruction-text">Press ENTER to continue</p>
+                </div>
+            </div>
+
+            <!-- Game Over Overlay -->
+            <div id="gameOverOverlay" class="overlay hidden">
+                <div class="glass-card">
+                    <h2 class="glow-text game-over-title">GAME OVER!</h2>
+                    <div class="stats">
+                        <p>Score: <span id="finalScore">0</span></p>
+                        <p>Highest: <span id="highestScore">0</span></p>
+                    </div>
+                    <div class="controls">
+                        <button id="restartBtn" class="glass-btn">R - Restart</button>
+                        <button id="quitBtn" class="glass-btn">Q - Quit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls Info -->
+            <div class="controls-info glass-card">
+                <h5>Controls</h5>
+                <div class="control-item">
+                    <span>Arrow Keys</span>
+                    <span>Move</span>
+                </div>
+                <div class="control-item">
+                    <span>Space</span>
+                    <span>Shoot</span>
+                </div>
+                <div class="control-item">
+                    <span>R</span>
+                    <span>Restart (Game Over)</span>
+                </div>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div class="mobile-controls" id="mobileControls">
+                <div class="dpad-container">
+                    <button class="dpad-btn dpad-up" id="btnUp">
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <div class="dpad-middle">
+                        <button class="dpad-btn dpad-left" id="btnLeft">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="dpad-btn dpad-right" id="btnRight">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <button class="dpad-btn dpad-down" id="btnDown">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                <button class="shoot-btn" id="btnShoot">
+                    <i class="fas fa-circle"></i>
+                    <span>SHOOT</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
