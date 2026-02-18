@@ -544,7 +544,7 @@ $(document).ready(function() {
             console.log('Quit pressed');
             history.back();
         }
-        if (e.key === 'Enter' && gameState.state === 'LEVEL_COMPLETE') {
+        if (gameState.state === 'LEVEL_COMPLETE') {
             nextLevel();
         }
         
